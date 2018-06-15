@@ -1,18 +1,6 @@
 import './main.css';
 import { calculate } from '../src/components/calculate';
-
-const getKeyType = key => {
-  const { action } = key.dataset;
-  if (!action) return 'number';
-  if (
-    action === 'add' ||
-    action === 'subtract' ||
-    action === 'multiply' ||
-    action === 'divide'
-  )
-    return 'operator';
-  return action;
-};
+import { getKeyType } from '../src/components/get-key-type';
 
 const createResultString = (key, displayedNum, state) => {
   const keyContent = key.textContent;
