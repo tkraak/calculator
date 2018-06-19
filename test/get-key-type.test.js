@@ -1,20 +1,20 @@
 import test from 'ava';
 import { getKeyType } from '../src/components/get-key-type';
-import { operators } from './fixtures/datasets';
+import { action } from './fixtures/datasets';
 
 test('should return `operator`', t => {
-  t.true(getKeyType(operators.add) === 'operator');
-  t.true(getKeyType(operators.subtract) === 'operator');
-  t.true(getKeyType(operators.multiply) === 'operator');
-  t.true(getKeyType(operators.divide) === 'operator');
+  t.true(getKeyType(action('add')) === 'operator');
+  t.true(getKeyType(action('subtract')) === 'operator');
+  t.true(getKeyType(action('multiply')) === 'operator');
+  t.true(getKeyType(action('divide')) === 'operator');
 })
 
 test('should return `number`', t => {
-  t.true(getKeyType({ dataset: { action: undefined } }) === 'number');
+  t.true(getKeyType(action(undefined)) === 'number');
 })
 
 test('should return action', t => {
-  t.true(getKeyType(operators.calculate) === 'calculate');
-  t.true(getKeyType(operators.clear) === 'clear');
-  t.true(getKeyType(operators.decimal) === 'decimal');
+  t.true(getKeyType(action('calculate')) === 'calculate');
+  t.true(getKeyType(action('clear')) === 'clear');
+  t.true(getKeyType(action('decimal')) === 'decimal');
 })
