@@ -8,6 +8,5 @@ exports.getKeyType = key => {
     action === 'divide'
   )
     return 'operator';
-  debugger;
   return action;
 };
