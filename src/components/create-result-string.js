@@ -1,5 +1,5 @@
-import { calculate } from './calculate';
-import { getKeyType } from './get-key-type';
+const { calculate } = require('./calculate');
+const { getKeyType } = require('./get-key-type');
 
 exports.createResultString = (key, displayedNum, state) => {
   const keyContent = key.textContent;
