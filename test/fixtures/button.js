@@ -1,3 +1,1 @@
-exports.button = {
-  textContent: '1',
-}
+exports.key = key => ({ textContent: key });

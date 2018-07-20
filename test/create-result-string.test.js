@@ -2,14 +2,32 @@ import test from 'ava';
 import { fake } from 'sinon';
 import rewire from 'rewire';
 const createResultStringRewired = rewire('../src/components/create-result-string');
-import { button as key } from './fixtures/button';
+import { key } from './fixtures/button';
 
 const { createResultString } = createResultStringRewired;
 const getKeyTypeFake = fake.returns('number');
 createResultStringRewired.__set__('getKeyType', getKeyTypeFake);
 
-test('should return `1`', t => {
-  t.is(createResultString(key, '0', {}), '1');
+test('enter first number', t => {
+  const getKeyTypeFake = fake.returns('number');
+  createResultStringRewired.__set__('getKeyType', getKeyTypeFake);
+  t.is(createResultString(key('1'), '0', {}), '1');
   t.true(getKeyTypeFake.calledOnce);
-  t.true(getKeyTypeFake.calledWith(key));
+  t.true(getKeyTypeFake.calledWith(key('1')));
+})
+
+test('enter a second number right after first number', t => {
+  const getKeyTypeFake = fake.returns('number');
+  createResultStringRewired.__set__('getKeyType', getKeyTypeFake);
+  t.is(createResultString(key('1'), '1', {}), '11');
+  t.true(getKeyTypeFake.calledOnce);
+  t.true(getKeyTypeFake.calledWith(key('1')));
+})
+
+test('enter `+` operator after number', t => {
+  const getKeyTypeFake = fake.returns('operator');
+  createResultStringRewired.__set__('getKeyType', getKeyTypeFake);
+  t.is(createResultString(key('+'), '1', { previousKeyType: 'number' }), '1');
+  t.true(getKeyTypeFake.calledOnce);
+  t.true(getKeyTypeFake.calledWith(key('+')));
 })
