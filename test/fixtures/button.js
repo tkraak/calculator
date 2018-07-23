@@ -1,1 +1,1 @@
-exports.key = key => ({ textContent: key });
+exports.button = textContent => ({ textContent: textContent });
