@@ -1,5 +1,8 @@
 # Build a Calculator
 
+[![tests](http://img.shields.io/travis/tkraak/calculator/master.svg?style=flat)](https://travis-ci.org/tkraak/calculator)
+[![coverage](https://img.shields.io/coveralls/tkraak/calculator.svg?style=flat)](https://coveralls.io/github/tkraak/calculator?branch=master)
+
 Learn fundamental JavaScript via a [three-part blog post series](https://zellwk.com/blog/calculator-part-1/) by [@zellwk](https://github.com/zellwk).
 
 ![Simple Calculator](https://zellwk.com/images/2018/calculator-1/calculator.gif)
