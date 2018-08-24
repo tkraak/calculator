@@ -1,4 +1,4 @@
-import { getKeyType } from './get-key-type';
+const { getKeyType } = require('./get-key-type');
 
 exports.updateVisualState = (key, calculator) => {
   const keyType = getKeyType(key);

@@ -1,1 +1,13 @@
-exports.button = textContent => ({ textContent: textContent });
+exports.button = textContent => ({
+  classList: {
+    add() {}
+  },
+  textContent,
+  parentNode: {
+    children: [{
+      classList: {
+        remove() {}
+      }
+    }]
+  }
+});
